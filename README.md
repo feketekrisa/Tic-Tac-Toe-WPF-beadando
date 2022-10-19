@@ -1,2 +1,2 @@
-# Sakk-Beadando-WPF
+# Tic-Tac-Toe-WPF
 Fejlesztők: Fekete Kristóf, Kovács Dániel
