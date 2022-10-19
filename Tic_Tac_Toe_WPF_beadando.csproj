@@ -7,4 +7,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="képek\X_gomb.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="képek\X_gomb.png" />
+  </ItemGroup>
+
 </Project>

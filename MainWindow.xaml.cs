@@ -24,17 +24,15 @@ namespace Tic_Tac_Toe_WPF_beadando
         public MainWindow()
         {
             InitializeComponent();
-
-            
-
-
         }
 
         void button_Click(object sender, EventArgs e)
         {
-            Button bt = sender as Button;
+            Button? bt = sender as Button;
             bt.Background = Brushes.Gray;
+            var imageBrush = new ImageBrush();
+            imageBrush.ImageSource = new BitmapImage(new Uri("../../../képek/X_gomb.png", UriKind.Relative));
+            bt.Background = imageBrush;
         }
-
     }
 }
