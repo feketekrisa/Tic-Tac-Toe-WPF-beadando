@@ -7,6 +7,37 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="Új játék" />
+                <MenuItem Header="Rekordok"/>
+            </Menu>
+        </DockPanel>
+        <Grid Background="White" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Button Click="button_Click" Grid.Row="0" Grid.Column="0"></Button>
+            <Button Click="button_Click" Grid.Row="0" Grid.Column="1"></Button>
+            <Button Click="button_Click" Grid.Row="0" Grid.Column="2"></Button>
+            <Button Click="button_Click" Grid.Row="1" Grid.Column="0"></Button>
+            <Button Click="button_Click" Grid.Row="1" Grid.Column="1"></Button>
+            <Button Click="button_Click" Grid.Row="1" Grid.Column="2"></Button>
+            <Button Click="button_Click" Grid.Row="2" Grid.Column="0"></Button>
+            <Button Click="button_Click" Grid.Row="2" Grid.Column="1"></Button>
+            <Button Click="button_Click" Grid.Row="2" Grid.Column="2"></Button>
+        </Grid>
     </Grid>
 </Window>

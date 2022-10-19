@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Drawing;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -23,6 +24,17 @@ namespace Tic_Tac_Toe_WPF_beadando
         public MainWindow()
         {
             InitializeComponent();
+
+            
+
+
         }
+
+        void button_Click(object sender, EventArgs e)
+        {
+            Button bt = sender as Button;
+            bt.Background = Brushes.Gray;
+        }
+
     }
 }
