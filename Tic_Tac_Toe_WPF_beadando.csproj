@@ -8,10 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="képek\O_gomb.png" />
     <None Remove="képek\X_gomb.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="képek\O_gomb.png" />
     <Resource Include="képek\X_gomb.png" />
   </ItemGroup>
 

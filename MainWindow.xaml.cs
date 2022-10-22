@@ -21,18 +21,35 @@ namespace Tic_Tac_Toe_WPF_beadando
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool jatekos1 = true;
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
-        void button_Click(object sender, EventArgs e)
+        void Gomb_Katt(object sender, EventArgs e)
         {
-            Button? bt = sender as Button;
-            bt.Background = Brushes.Gray;
-            var imageBrush = new ImageBrush();
-            imageBrush.ImageSource = new BitmapImage(new Uri("../../../képek/X_gomb.png", UriKind.Relative));
-            bt.Background = imageBrush;
+            Button? gomb = sender as Button;
+            var kepEcset = new ImageBrush();
+            
+            if (gomb != null && jatekos1)
+            {
+                kepEcset.ImageSource = new BitmapImage(new Uri("../../../képek/X_gomb.png", UriKind.Relative));
+                gomb.Background = kepEcset;
+                jatekos1 = false;
+            }
+            else if(gomb != null && !jatekos1)
+            {
+                kepEcset.ImageSource = new BitmapImage(new Uri("../../../képek/O_gomb.png", UriKind.Relative));
+                gomb.Background = kepEcset;
+                jatekos1 = true;
+            }
+        }
+
+        private void kilep(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }

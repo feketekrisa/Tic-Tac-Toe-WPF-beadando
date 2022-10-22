@@ -15,6 +15,7 @@
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="Új játék" />
                 <MenuItem Header="Rekordok"/>
+                <MenuItem Header="Kilépés" Click="kilep"/>
             </Menu>
         </DockPanel>
         <Grid Background="White" Grid.Row="1">
@@ -29,15 +30,15 @@
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
-            <Button Click="button_Click" Grid.Row="0" Grid.Column="0"></Button>
-            <Button Click="button_Click" Grid.Row="0" Grid.Column="1"></Button>
-            <Button Click="button_Click" Grid.Row="0" Grid.Column="2"></Button>
-            <Button Click="button_Click" Grid.Row="1" Grid.Column="0"></Button>
-            <Button Click="button_Click" Grid.Row="1" Grid.Column="1"></Button>
-            <Button Click="button_Click" Grid.Row="1" Grid.Column="2"></Button>
-            <Button Click="button_Click" Grid.Row="2" Grid.Column="0"></Button>
-            <Button Click="button_Click" Grid.Row="2" Grid.Column="1"></Button>
-            <Button Click="button_Click" Grid.Row="2" Grid.Column="2"></Button>
+            <Button Click="Gomb_Katt" Grid.Row="0" Grid.Column="0"></Button>
+            <Button Click="Gomb_Katt" Grid.Row="0" Grid.Column="1"></Button>
+            <Button Click="Gomb_Katt" Grid.Row="0" Grid.Column="2"></Button>
+            <Button Click="Gomb_Katt" Grid.Row="1" Grid.Column="0"></Button>
+            <Button Click="Gomb_Katt" Grid.Row="1" Grid.Column="1"></Button>
+            <Button Click="Gomb_Katt" Grid.Row="1" Grid.Column="2"></Button>
+            <Button Click="Gomb_Katt" Grid.Row="2" Grid.Column="0"></Button>
+            <Button Click="Gomb_Katt" Grid.Row="2" Grid.Column="1"></Button>
+            <Button Click="Gomb_Katt" Grid.Row="2" Grid.Column="2"></Button>
             <TextBlock Text="Játékos: " Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         </Grid>
     </Grid>
