@@ -39,7 +39,7 @@
             <Button Click="Gomb_Katt" Grid.Row="2" Grid.Column="0"></Button>
             <Button Click="Gomb_Katt" Grid.Row="2" Grid.Column="1"></Button>
             <Button Click="Gomb_Katt" Grid.Row="2" Grid.Column="2"></Button>
-            <TextBlock Text="Játékos: " Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Text="Játékos: " FontSize="24pt"   Name="jelenlegi" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         </Grid>
     </Grid>
 </Window>
