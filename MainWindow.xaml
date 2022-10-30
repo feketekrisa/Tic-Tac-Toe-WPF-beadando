@@ -13,9 +13,9 @@
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0">
             <Menu DockPanel.Dock="Top">
-                <MenuItem Header="Új játék" />
+                <MenuItem Header="Új játék" Click="ujJatek" />
                 <MenuItem Header="Rekordok"/>
-                <MenuItem Header="Kilépés" Click="kilep"/>
+                <MenuItem Header="Kilépés" Click="kilepes"/>
             </Menu>
             <ToolBar>
                 <Button Content="Button1"></Button>
@@ -35,15 +35,15 @@
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
-            <Button Click="Gomb_Katt" Grid.Row="0" Grid.Column="0"></Button>
-            <Button Click="Gomb_Katt" Grid.Row="0" Grid.Column="1"></Button>
-            <Button Click="Gomb_Katt" Grid.Row="0" Grid.Column="2"></Button>
-            <Button Click="Gomb_Katt" Grid.Row="1" Grid.Column="0"></Button>
-            <Button Click="Gomb_Katt" Grid.Row="1" Grid.Column="1"></Button>
-            <Button Click="Gomb_Katt" Grid.Row="1" Grid.Column="2"></Button>
-            <Button Click="Gomb_Katt" Grid.Row="2" Grid.Column="0"></Button>
-            <Button Click="Gomb_Katt" Grid.Row="2" Grid.Column="1"></Button>
-            <Button Click="Gomb_Katt" Grid.Row="2" Grid.Column="2"></Button>
+            <Button Name="gomb1" Click="Gomb_Katt" Grid.Row="0" Grid.Column="0"></Button>
+            <Button Name="gomb2" Click="Gomb_Katt" Grid.Row="0" Grid.Column="1"></Button>
+            <Button Name="gomb3" Click="Gomb_Katt" Grid.Row="0" Grid.Column="2"></Button>
+            <Button Name="gomb4" Click="Gomb_Katt" Grid.Row="1" Grid.Column="0"></Button>
+            <Button Name="gomb5" Click="Gomb_Katt" Grid.Row="1" Grid.Column="1"></Button>
+            <Button Name="gomb6" Click="Gomb_Katt" Grid.Row="1" Grid.Column="2"></Button>
+            <Button Name="gomb7" Click="Gomb_Katt" Grid.Row="2" Grid.Column="0"></Button>
+            <Button Name="gomb8" Click="Gomb_Katt" Grid.Row="2" Grid.Column="1"></Button>
+            <Button Name="gomb9" Click="Gomb_Katt" Grid.Row="2" Grid.Column="2"></Button>
             <TextBlock Text="Játékos: " FontSize="24pt"   Name="jelenlegi" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         </Grid>
     </Grid>

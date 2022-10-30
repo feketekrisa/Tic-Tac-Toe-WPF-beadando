@@ -31,7 +31,6 @@ namespace Tic_Tac_Toe_WPF_beadando
             InitializeComponent();
             tombFeltolt(tabla);
             jatekosKiir();
-            
         }
 
         private void Gomb_Katt(object sender, EventArgs e)
@@ -59,10 +58,16 @@ namespace Tic_Tac_Toe_WPF_beadando
                 jatekosKiir();
                 
             }
+            //TODO: megcsinálni hogy kattinthatatlanná tegye a gombot úgy, hogy
+            //megmarad a háttér szimbólum
+            //gomb.IsEnabled = false;
             jatekAllas = jatekVizsgal(tabla);
-            // Játékos nyert
+            // Játék vége
             if (jatekAllas != "")
             {
+                tablaMentes();
+                jatekVege();
+                tombFeltolt(tabla);
                 eredmenyablak = new JatekVege();
                 eredmenyablak.Owner = this;
                 eredmenyablak.Show();
@@ -70,18 +75,8 @@ namespace Tic_Tac_Toe_WPF_beadando
             }
         }
 
-        private void kilep(object sender, RoutedEventArgs e)
+        private void kilepes(object sender, RoutedEventArgs e)
         {
-            using (StreamWriter sw = new StreamWriter("teszt.txt"))
-                for (int i = 0; i < 3; i++)
-                {
-                    sw.Write("{");
-                    for (int j = 0; j < 3; j++)
-                    {
-                        sw.Write(tabla[i, j] + " ");
-                    }
-                    sw.Write("}\n");
-                }
             System.Windows.Application.Current.Shutdown();
         }
 
@@ -95,9 +90,14 @@ namespace Tic_Tac_Toe_WPF_beadando
             }
         }
 
-        private void jatekVege(Button gomb)
+        private void jatekVege()
         {
-            gomb.Background = null;
+            for(int i = 0; i < 9; i++)
+            {
+                Button gombideiglenes = (Button)FindName("gomb"+(i+1));
+                gombideiglenes.ClearValue(BackgroundProperty);
+                gombideiglenes.IsEnabled = false;
+            }
         }
 
         public static void tombFeltolt(char[,] array)
@@ -141,6 +141,30 @@ namespace Tic_Tac_Toe_WPF_beadando
                 return "Játékos 2 nyert";
             }
             return "";
+        }
+
+        private void tablaMentes()
+        {
+            using (StreamWriter sw = new StreamWriter("teszt.txt"))
+                for (int i = 0; i < 3; i++)
+                {
+                    sw.Write("{");
+                    for (int j = 0; j < 3; j++)
+                    {
+                        sw.Write(tabla[i, j] + " ");
+                    }
+                    sw.Write("}\n");
+                }
+        }
+
+        private void ujJatek(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                Button gombideiglenes = (Button)FindName("gomb" + (i + 1));
+                //gombideiglenes.ClearValue(BackgroundProperty);
+                gombideiglenes.IsEnabled = true;
+            }
         }
     }
 }
