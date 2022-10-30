@@ -17,6 +17,11 @@
                 <MenuItem Header="Rekordok"/>
                 <MenuItem Header="Kilépés" Click="kilep"/>
             </Menu>
+            <ToolBar>
+                <Button Content="Button1"></Button>
+                <Button Content="Button2"></Button>
+                <Button Content="Button3"></Button>
+            </ToolBar>
         </DockPanel>
         <Grid Background="White" Grid.Row="1">
             <Grid.ColumnDefinitions>

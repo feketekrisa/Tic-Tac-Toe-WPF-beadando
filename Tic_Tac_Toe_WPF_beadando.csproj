@@ -13,8 +13,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="képek\O_gomb.png" />
-    <Resource Include="képek\X_gomb.png" />
+    <Content Include="képek\O_gomb.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="képek\X_gomb.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
