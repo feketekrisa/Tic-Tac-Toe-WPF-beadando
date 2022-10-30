@@ -23,7 +23,9 @@ namespace Tic_Tac_Toe_WPF_beadando
     public partial class MainWindow : Window
     {
         private bool jatekos1 = true;
+        private string jatekAllas = "";
         private char[,] tabla = new char[3, 3];
+        private JatekVege eredmenyablak;
         public MainWindow()
         {
             InitializeComponent();
@@ -36,13 +38,13 @@ namespace Tic_Tac_Toe_WPF_beadando
         {
             Button? gomb = sender as Button;
             var kepEcset = new ImageBrush();
-            int row = Grid.GetRow(gomb);
-            int column = Grid.GetColumn(gomb);
+            int sor = Grid.GetRow(gomb);
+            int oszlop = Grid.GetColumn(gomb);
 
 
             if (gomb != null && jatekos1)
             {
-                tabla[row, column] = 'X';
+                tabla[sor, oszlop] = 'X';
                 kepEcset.ImageSource = new BitmapImage(new Uri("../../../képek/X_gomb.png", UriKind.Relative));
                 gomb.Background = kepEcset;
                 jatekos1 = false;
@@ -50,13 +52,22 @@ namespace Tic_Tac_Toe_WPF_beadando
             }
             else if(gomb != null && !jatekos1)
             {
-                tabla[row, column] = 'O';
+                tabla[sor, oszlop] = 'O';
                 kepEcset.ImageSource = new BitmapImage(new Uri("../../../képek/O_gomb.png", UriKind.Relative));
                 gomb.Background = kepEcset;
                 jatekos1 = true;
                 jatekosKiir();
+                
             }
-            if (tabla[0, 0] == 'X' && tabla[0, 1] == 'X' && tabla[0, 2] == 'X') jatekVege(gomb);
+            jatekAllas = jatekVizsgal(tabla);
+            // Játékos nyert
+            if (jatekAllas != "")
+            {
+                eredmenyablak = new JatekVege();
+                eredmenyablak.Owner = this;
+                eredmenyablak.Show();
+                eredmenyablak.feliratBeallit(jatekAllas);
+            }
         }
 
         private void kilep(object sender, RoutedEventArgs e)
@@ -98,6 +109,38 @@ namespace Tic_Tac_Toe_WPF_beadando
                     array[i, j] = '\0';
                 }
             }
+        }
+
+        public string jatekVizsgal(char[,] array)
+        {
+            //Soronkénti vizsgálat - X
+            if((array[0,0] == 'X' && array[0,1] == 'X' && array[0,2] == 'X') ||
+                (array[1, 0] == 'X' && array[1, 1] == 'X' && array[1, 2] == 'X')||
+                (array[2, 0] == 'X' && array[2, 1] == 'X' && array[2, 2] == 'X')||
+                //Oszloponkénti vizsgálat - X
+                (array[0, 0] == 'X' && array[1, 0] == 'X' && array[2, 0] == 'X')||
+                (array[0, 1] == 'X' && array[1, 1] == 'X' && array[2, 1] == 'X')||
+                (array[0, 2] == 'X' && array[1, 2] == 'X' && array[2, 2] == 'X')||
+                //Átlónkénti vizsgálat) - X
+                (array[0, 0] == 'X' && array[1, 1] == 'X' && array[2, 2] == 'X')||
+                (array[0, 2] == 'X' && array[1, 1] == 'X' && array[2, 0] == 'X'))
+            {
+                return "Játékos 1 nyert";
+            //SorOnkénti vizsgálat - O
+            }else if((array[0, 0] == 'O' && array[0, 1] == 'O' && array[0, 2] == 'O') ||
+                (array[1, 0] == 'O' && array[1, 1] == 'O' && array[1, 2] == 'O') ||
+                (array[2, 0] == 'O' && array[2, 1] == 'O' && array[2, 2] == 'O') ||
+                //Oszloponkénti vizsgálat - O
+                (array[0, 0] == 'O' && array[1, 0] == 'O' && array[2, 0] == 'O') ||
+                (array[0, 1] == 'O' && array[1, 1] == 'O' && array[2, 1] == 'O') ||
+                (array[0, 2] == 'O' && array[1, 2] == 'O' && array[2, 2] == 'O') ||
+                //Átlónkénti vizsgálat) - O
+                (array[0, 0] == 'O' && array[1, 1] == 'O' && array[2, 2] == 'O') ||
+                (array[0, 2] == 'O' && array[1, 1] == 'O' && array[2, 0] == 'O'))
+            {
+                return "Játékos 2 nyert";
+            }
+            return "";
         }
     }
 }
