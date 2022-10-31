@@ -60,7 +60,8 @@ namespace Tic_Tac_Toe_WPF_beadando
             }
             //TODO: megcsinálni hogy kattinthatatlanná tegye a gombot úgy, hogy
             //megmarad a háttér szimbólum
-            //gomb.IsEnabled = false;
+            gomb.IsEnabled = false;
+            
             jatekAllas = jatekVizsgal(tabla);
             // Játék vége
             if (jatekAllas != "")
