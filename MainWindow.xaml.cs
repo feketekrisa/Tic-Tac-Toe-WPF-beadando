@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.Data;
 
 namespace Tic_Tac_Toe_WPF_beadando
 {
@@ -25,12 +26,13 @@ namespace Tic_Tac_Toe_WPF_beadando
         private bool jatekos1 = true;
         private string jatekAllas = "";
         private char[,] tabla = new char[3, 3];
-        private JatekVege eredmenyablak;
+        private JatekVege eredmenyablak = new JatekVege();
         public MainWindow()
         {
             InitializeComponent();
             tombFeltolt(tabla);
             jatekosKiir();
+            
         }
 
         private void Gomb_Katt(object sender, EventArgs e)
@@ -58,9 +60,7 @@ namespace Tic_Tac_Toe_WPF_beadando
                 jatekosKiir();
                 
             }
-            //TODO: megcsinálni hogy kattinthatatlanná tegye a gombot úgy, hogy
-            //megmarad a háttér szimbólum
-            gomb.IsEnabled = false;
+            if (gomb != null) gomb.IsEnabled = false;
             
             jatekAllas = jatekVizsgal(tabla);
             // Játék vége
