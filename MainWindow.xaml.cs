@@ -27,6 +27,7 @@ namespace Tic_Tac_Toe_WPF_beadando
         private string jatekAllas = "";
         private char[,] tabla = new char[3, 3];
         private JatekVege eredmenyablak = new JatekVege();
+        private Rekordok rekordokablak = new Rekordok();
         public MainWindow()
         {
             InitializeComponent();
@@ -69,7 +70,7 @@ namespace Tic_Tac_Toe_WPF_beadando
                 tablaMentes();
                 jatekVege();
                 tombFeltolt(tabla);
-                eredmenyablak = new JatekVege();
+                //eredmenyablak = new JatekVege();
                 eredmenyablak.Owner = this;
                 eredmenyablak.Show();
                 eredmenyablak.feliratBeallit(jatekAllas);
@@ -146,16 +147,16 @@ namespace Tic_Tac_Toe_WPF_beadando
 
         private void tablaMentes()
         {
-            using (StreamWriter sw = new StreamWriter("teszt.txt"))
-                for (int i = 0; i < 3; i++)
+            using StreamWriter sw = new StreamWriter("teszt.txt");
+            for (int i = 0; i < 3; i++)
+            {
+                sw.Write("{");
+                for (int j = 0; j < 3; j++)
                 {
-                    sw.Write("{");
-                    for (int j = 0; j < 3; j++)
-                    {
-                        sw.Write(tabla[i, j] + " ");
-                    }
-                    sw.Write("}\n");
+                    sw.Write(tabla[i, j]);
                 }
+                sw.Write("}\n");
+            }
         }
 
         private void ujJatek(object sender, RoutedEventArgs e)
@@ -163,9 +164,16 @@ namespace Tic_Tac_Toe_WPF_beadando
             for (int i = 0; i < 9; i++)
             {
                 Button gombideiglenes = (Button)FindName("gomb" + (i + 1));
-                //gombideiglenes.ClearValue(BackgroundProperty);
+                gombideiglenes.ClearValue(BackgroundProperty);
                 gombideiglenes.IsEnabled = true;
             }
+        }
+
+        private void Rekordok(object sender, RoutedEventArgs e)
+        {
+            rekordokablak.Owner = this;
+            rekordokablak.Show();
+
         }
     }
 }

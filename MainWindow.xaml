@@ -39,7 +39,7 @@
         <DockPanel Grid.Row="0">
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="Új játék" Click="ujJatek" />
-                <MenuItem Header="Rekordok"/>
+                <MenuItem Header="Rekordok" Click="Rekordok"/>
                 <MenuItem Header="Kilépés" Click="kilepes"/>
             </Menu>
             <ToolBar>
