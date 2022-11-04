@@ -43,9 +43,9 @@
                 <MenuItem Header="Kilépés" Click="kilepes"/>
             </Menu>
             <ToolBar>
-                <Button Content="Button1"></Button>
-                <Button Content="Button2"></Button>
-                <Button Content="Button3"></Button>
+                <Button Content="Belépés" Margin="5,1,5,1"></Button>
+                <Button Content="Adatmódosítás" Margin="5,1,5,1"></Button>
+                <Button Content="Regisztrálás" Margin="5,1,5,1"></Button>
             </ToolBar>
         </DockPanel>
         <Grid Background="White" Grid.Row="1">

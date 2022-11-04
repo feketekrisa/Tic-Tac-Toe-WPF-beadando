@@ -70,7 +70,7 @@ namespace Tic_Tac_Toe_WPF_beadando
                 tablaMentes();
                 jatekVege();
                 tombFeltolt(tabla);
-                MessageBox.Show(jatekVizsgal(tabla),"Eredmény");
+                MessageBox.Show(jatekAllas, "Eredmény", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
