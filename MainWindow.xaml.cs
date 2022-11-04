@@ -98,7 +98,7 @@ namespace Tic_Tac_Toe_WPF_beadando
             }
         }
 
-        public static void tombFeltolt(char[,] array)
+        public void tombFeltolt(char[,] array)
         {
             for (int i = 0; i < array.GetLength(0); i++)
             {
@@ -107,6 +107,8 @@ namespace Tic_Tac_Toe_WPF_beadando
                     array[i, j] = '\0';
                 }
             }
+            jatekos1 = true;
+            jatekosKiir();
         }
 
         public string jatekVizsgal(char[,] array)
