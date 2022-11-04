@@ -177,5 +177,10 @@ namespace Tic_Tac_Toe_WPF_beadando
             Rekordok rekordokablak = new Rekordok();
             rekordokablak.Show();
         }
+
+        private void ujJatekosRegisztral(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
