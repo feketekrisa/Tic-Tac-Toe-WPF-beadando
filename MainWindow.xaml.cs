@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using System.Data;
+using System.ComponentModel;
 
 namespace Tic_Tac_Toe_WPF_beadando
 {
@@ -26,7 +27,6 @@ namespace Tic_Tac_Toe_WPF_beadando
         private bool jatekos1 = true;
         private string jatekAllas = "";
         private char[,] tabla = new char[3, 3];
-        private JatekVege eredmenyablak = new JatekVege();
         private Rekordok rekordokablak = new Rekordok();
         public MainWindow()
         {
@@ -70,10 +70,7 @@ namespace Tic_Tac_Toe_WPF_beadando
                 tablaMentes();
                 jatekVege();
                 tombFeltolt(tabla);
-                //eredmenyablak = new JatekVege();
-                eredmenyablak.Owner = this;
-                eredmenyablak.Show();
-                eredmenyablak.feliratBeallit(jatekAllas);
+                MessageBox.Show(jatekVizsgal(tabla),"Eredmény");
             }
         }
 
@@ -128,7 +125,7 @@ namespace Tic_Tac_Toe_WPF_beadando
                 (array[0, 2] == 'X' && array[1, 1] == 'X' && array[2, 0] == 'X'))
             {
                 return "Játékos 1 nyert";
-            //SorOnkénti vizsgálat - O
+            //Soronkénti vizsgálat - O
             }else if((array[0, 0] == 'O' && array[0, 1] == 'O' && array[0, 2] == 'O') ||
                 (array[1, 0] == 'O' && array[1, 1] == 'O' && array[1, 2] == 'O') ||
                 (array[2, 0] == 'O' && array[2, 1] == 'O' && array[2, 2] == 'O') ||
@@ -141,6 +138,12 @@ namespace Tic_Tac_Toe_WPF_beadando
                 (array[0, 2] == 'O' && array[1, 1] == 'O' && array[2, 0] == 'O'))
             {
                 return "Játékos 2 nyert";
+            //Döntetlen
+            }else if ((array[0, 0] != '\0' && array[0, 1] != '\0' && array[0, 2] != '\0')&&
+                (array[1, 0] != '\0' && array[1, 1] != '\0' && array[1, 2] != '\0')&&
+                (array[2, 0] != '\0' && array[2, 1] != '\0' && array[2, 2] != '\0'))
+            {
+                return "Döntetlen";
             }
             return "";
         }

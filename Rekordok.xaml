@@ -5,9 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tic_Tac_Toe_WPF_beadando"
         mc:Ignorable="d"
-        Title="Rekordok" Height="450" Width="800">
+        Title="Rekordok" Height="450" Width="800" Loaded="betoltott" >
     <Grid>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
-
+        <DataGrid x:Name="rekordoktabla" AlternatingRowBackground="LightGray">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Név" Binding="{Binding Nev}" />
+                <DataGridTextColumn Header="Nyert" Binding="{Binding nyert}" />
+                <DataGridTextColumn Header="Vesztett" Binding="{Binding vesztett}" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
