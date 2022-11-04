@@ -31,8 +31,6 @@ namespace Tic_Tac_Toe_WPF_beadando
         {
             InitializeComponent();
             tombFeltolt(tabla);
-            jatekosKiir();
-            
         }
 
         private void Gomb_Katt(object sender, EventArgs e)

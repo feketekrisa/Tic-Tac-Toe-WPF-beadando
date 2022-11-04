@@ -32,12 +32,14 @@ namespace Tic_Tac_Toe_WPF_beadando
         {
             var adattabla = ABKapcsolat.adatTabla(SQL);
             rekordoktabla.DataContext = adattabla;
-            //adatRacs.Items.Add(adattabla);
+            if (rekordoktabla.CurrentColumn == null)
+            {
+                rekordoktabla.CanUserSortColumns = false;
+            }
         }
 
         private void betoltott(object sender, RoutedEventArgs e)
         {
-            adatRacs = (DataGrid)FindName("rekordoktabla");
             adatracsFeltoltAdatTablaval();
         }
     }
