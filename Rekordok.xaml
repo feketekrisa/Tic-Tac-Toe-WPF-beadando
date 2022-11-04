@@ -1,0 +1,20 @@
+﻿<Window x:Class="Tic_Tac_Toe_WPF_beadando.Rekordok"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tic_Tac_Toe_WPF_beadando"
+        mc:Ignorable="d"
+        Title="Rekordok" Height="450" Width="800" Loaded="betoltott" >
+    <Grid>
+        <DataGrid x:Name="rekordoktabla" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding}" AlternatingRowBackground="LightGray">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Név" Binding="{Binding Nev}" />
+                <DataGridTextColumn Header="Nyert" Binding="{Binding nyert}" />
+                <DataGridTextColumn Header="Vesztett" Binding="{Binding vesztett}" />
+                <DataGridTextColumn Header="Döntetlen" Binding="{Binding dontetlen}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

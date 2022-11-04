@@ -39,13 +39,13 @@
         <DockPanel Grid.Row="0">
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="Új játék" Click="ujJatek" />
-                <MenuItem Header="Rekordok"/>
+                <MenuItem Header="Rekordok" Click="Rekordok"/>
                 <MenuItem Header="Kilépés" Click="kilepes"/>
             </Menu>
             <ToolBar>
-                <Button Content="Button1"></Button>
-                <Button Content="Button2"></Button>
-                <Button Content="Button3"></Button>
+                <Button Content="Belépés" Margin="5,1,5,1"></Button>
+                <Button Content="Adatmódosítás" Margin="5,1,5,1"></Button>
+                <Button Content="Regisztrálás" Margin="5,1,5,1" Click="ujJatekosRegisztral"></Button>
             </ToolBar>
         </DockPanel>
         <Grid Background="White" Grid.Row="1">
