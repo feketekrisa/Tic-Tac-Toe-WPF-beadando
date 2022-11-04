@@ -22,11 +22,7 @@ namespace Tic_Tac_Toe_WPF_beadando
     public partial class Rekordok : Window
     {
         private DataGrid adatRacs;
-        private const string SQL = "" +
-            "SELECT jatekosok.Id, jatekosok.Nev, jatszott.nyert, jatszott.vesztett " +
-            "FROM [jatekosok]" +
-            "INNER JOIN [jatszott]" +
-            "ON jatekosok.Id=jatszott.jatekosId;";
+        private const string SQL = "SELECT jatekosok.Id ,Nev, nyert, vesztett FROM jatekosok,jatszott WHERE jatekosok.Id=jatszott.jatekosId;";
         public Rekordok()
         {
             InitializeComponent();
@@ -34,8 +30,9 @@ namespace Tic_Tac_Toe_WPF_beadando
 
         public void adatracsFeltoltAdatTablaval()
         {
-            var adattabla = ABKapcsolat.adatTabla("SELECT jatekosok.Id ,Nev, nyert, vesztett FROM jatekosok,jatszott WHERE jatekosok.Id=jatszott.jatekosId;");
-            adatRacs.Items.Add(adattabla);
+            var adattabla = ABKapcsolat.adatTabla(SQL);
+            rekordoktabla.DataContext = adattabla;
+            //adatRacs.Items.Add(adattabla);
         }
 
         private void betoltott(object sender, RoutedEventArgs e)

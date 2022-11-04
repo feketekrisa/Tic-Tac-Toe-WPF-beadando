@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Rekordok" Height="450" Width="800" Loaded="betoltott" >
     <Grid>
-        <DataGrid x:Name="rekordoktabla" AlternatingRowBackground="LightGray">
+        <DataGrid x:Name="rekordoktabla" ItemsSource="{Binding}" AlternatingRowBackground="LightGray">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Név" Binding="{Binding Nev}" />
@@ -15,5 +15,6 @@
                 <DataGridTextColumn Header="Vesztett" Binding="{Binding vesztett}" />
             </DataGrid.Columns>
         </DataGrid>
+        
     </Grid>
 </Window>

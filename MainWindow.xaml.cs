@@ -27,7 +27,6 @@ namespace Tic_Tac_Toe_WPF_beadando
         private bool jatekos1 = true;
         private string jatekAllas = "";
         private char[,] tabla = new char[3, 3];
-        private Rekordok rekordokablak = new Rekordok();
         public MainWindow()
         {
             InitializeComponent();
@@ -174,9 +173,8 @@ namespace Tic_Tac_Toe_WPF_beadando
 
         private void Rekordok(object sender, RoutedEventArgs e)
         {
-            rekordokablak.Owner = this;
+            Rekordok rekordokablak = new Rekordok();
             rekordokablak.Show();
-
         }
     }
 }
