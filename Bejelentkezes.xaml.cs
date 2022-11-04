@@ -15,15 +15,14 @@ using System.Windows.Shapes;
 namespace Tic_Tac_Toe_WPF_beadando
 {
     /// <summary>
-    /// Interaction logic for Adatmodositas.xaml
+    /// Interaction logic for Bejelentkezes.xaml
     /// </summary>
-    public partial class Adatmodositas : Window
+    public partial class Bejelentkezes : Window
     {
-        public Adatmodositas()
+        public Bejelentkezes()
         {
             InitializeComponent();
         }
-
         private void kesz(object sender, RoutedEventArgs e)
         {
 

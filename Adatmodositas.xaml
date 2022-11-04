@@ -5,17 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tic_Tac_Toe_WPF_beadando"
         mc:Ignorable="d"
-        Title="Adatmodositas" Height="233" Width="302">
+        Title="Adatmódosítás" Height="233" Width="302" ResizeMode="CanMinimize">
     <Grid>
-        <Label Content="Név
-               " HorizontalAlignment="Left" Margin="27,25,0,0" VerticalAlignment="Top" Width="33"/>
-        <Label Content="e-mail" HorizontalAlignment="Left" Margin="27,105,0,0" VerticalAlignment="Top"/>
-        <Label Content="Új Jelszó" HorizontalAlignment="Left" Margin="27,66,0,0" VerticalAlignment="Top"/>
-        <TextBox Margin="106,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="156"/>
-        <TextBox Margin="106,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="156"/>
-        <TextBox HorizontalAlignment="Left" Margin="106,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
-        <Button Content="Kész" HorizontalAlignment="Left" Margin="168,164,0,0" VerticalAlignment="Top" Width="50"/>
-        <Button Content="Mégse" Margin="223,164,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50"/>
+        <Label Content="Név" Margin="27,25,220,0" VerticalAlignment="Top"/>
+        <Label Content="Jelszó" Margin="27,66,220,0" VerticalAlignment="Top"/>
+        <Label Content="E-mail" Margin="27,105,215,0" VerticalAlignment="Top"/>
+        <TextBox Margin="106,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160" Name="ujnev"/>
+        <TextBox Margin="106,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160" Name="ujjelso"/>
+        <TextBox Margin="106,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160" Name="ujemail"/>
+        <Button Content="Kész" HorizontalAlignment="Left" Margin="161,164,0,0" VerticalAlignment="Top" Width="50" Click="kesz"/>
+        <Button Content="Mégse" Margin="216,164,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Click="megse"/>
 
     </Grid>
 </Window>

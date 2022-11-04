@@ -182,5 +182,18 @@ namespace Tic_Tac_Toe_WPF_beadando
         {
 
         }
+
+        private void JatekosModosit(object sender, RoutedEventArgs e)
+        {
+
+            Adatmodositas adatmodositas = new Adatmodositas();
+            adatmodositas.Show();
+        }
+
+        private void JatekosBelepes(object sender, RoutedEventArgs e)
+        {
+            Bejelentkezes bejelentkezes = new Bejelentkezes();
+            bejelentkezes.Show();
+        }
     }
 }

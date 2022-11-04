@@ -43,8 +43,8 @@
                 <MenuItem Header="Kilépés" Click="kilepes"/>
             </Menu>
             <ToolBar>
-                <Button Content="Belépés" Margin="5,1,5,1"></Button>
-                <Button Content="Adatmódosítás" Margin="5,1,5,1"></Button>
+                <Button Content="Belépés" Margin="5,1,5,1" Click="JatekosBelepes"></Button>
+                <Button Content="Adatmódosítás" Margin="5,1,5,1" Click="JatekosModosit"></Button>
                 <Button Content="Regisztrálás" Margin="5,1,5,1" Click="ujJatekosRegisztral"></Button>
             </ToolBar>
         </DockPanel>
