@@ -178,9 +178,10 @@ namespace Tic_Tac_Toe_WPF_beadando
             rekordokablak.Show();
         }
 
-        private void ujJatekosRegisztral(object sender, RoutedEventArgs e)
+        private void regisztralGomb(object sender, RoutedEventArgs e)
         {
-
+            Regisztracio regisztracio = new Regisztracio();
+            regisztracio.Show();
         }
     }
 }
