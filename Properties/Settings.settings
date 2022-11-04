@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="connection_String" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="D:\Dokumentumok_D\Proginfo\vizuális programozás\beadando2\Tic_Tac_Toe_WPF_beadando\rekordok.mdf";Integrated Security=True;Connect Timeout=30</Value>
+      <Value Profile="(Default)">Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Z\info\Github\feketekrisa\Tic-Tac-Toe-WPF-beadando\rekordok.mdf;Integrated Security=True;Connect Timeout=30</Value>
     </Setting>
   </Settings>
 </SettingsFile>
