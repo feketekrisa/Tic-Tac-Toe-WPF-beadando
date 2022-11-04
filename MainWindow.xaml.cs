@@ -168,6 +168,7 @@ namespace Tic_Tac_Toe_WPF_beadando
                 Button gombideiglenes = (Button)FindName("gomb" + (i + 1));
                 gombideiglenes.ClearValue(BackgroundProperty);
                 gombideiglenes.IsEnabled = true;
+                tombFeltolt(tabla);
             }
         }
 
