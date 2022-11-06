@@ -11,7 +11,7 @@
         <Label Content="e-mail" HorizontalAlignment="Left" Margin="27,105,0,0" VerticalAlignment="Top"/>
         <Label Content="Jelszó" HorizontalAlignment="Left" Margin="27,66,0,0" VerticalAlignment="Top"/>
         <TextBox Margin="106,29,0,0" Name="Nev" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160"/>
-        <TextBox Margin="106,70,0,0" Name="Jelszo" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160"/>
+        <TextBox Margin="106,70,0,0" x:Name="Jelszo" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160"/>
         <TextBox Margin="106,109,0,0" Name="Email" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160"/>
         <Button Content="Regisztrál" Click="ujJatekosRegisztral" HorizontalAlignment="Left" Margin="143,164,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="Mégse" Click="megse" Margin="223,164,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50"/>
