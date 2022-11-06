@@ -21,7 +21,6 @@ namespace Tic_Tac_Toe_WPF_beadando
     /// </summary>
     public partial class Rekordok : Window
     {
-        private DataGrid adatRacs;
         private const string SQL = "SELECT jatekosok.Id ,Nev, nyert, vesztett FROM jatekosok,jatszott WHERE jatekosok.Id=jatszott.jatekosId;";
         public Rekordok()
         {
