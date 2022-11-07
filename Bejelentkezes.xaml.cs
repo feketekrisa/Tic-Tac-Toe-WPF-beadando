@@ -64,7 +64,7 @@ namespace Tic_Tac_Toe_WPF_beadando
         {
             if (felulet == "adatm")
             {
-                Adatmodositas adatmodositas = new Adatmodositas();
+                Adatmodositas adatmodositas = new Adatmodositas(inputnevtext);
                 adatmodositas.Show();
                 this.Close();
             }
