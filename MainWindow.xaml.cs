@@ -26,6 +26,8 @@ namespace Tic_Tac_Toe_WPF_beadando
     {
         private bool jatekosCsere = true;
         public static string jatekos1 = "Játékos 1";
+        public static int id1;
+        public static int id2;
         public static string jatekos2 = "Játékos 2";
         public static int jszam = 0;
         private string jatekAllas = "";
@@ -69,6 +71,7 @@ namespace Tic_Tac_Toe_WPF_beadando
             // Játék vége
             if (jatekAllas != "")
             {
+                EredmenyFeltolt();
                 tablaMentes();
                 jatekVege();
                 tombFeltolt(tabla);
@@ -217,6 +220,33 @@ namespace Tic_Tac_Toe_WPF_beadando
                 "Hiba!",
                 MessageBoxButton.OK,
                 MessageBoxImage.Error);
+        }
+
+        private void EredmenyFeltolt()
+        {
+            
+            if(jatekAllas == (jatekos1 + " nyert"))
+            {
+                string nyertSQL = "UPDATE jatszott SET nyert = nyert + 1 WHERE id='" + id1 + "';";
+                string vesztettSQL = "UPDATE jatszott SET vesztett = vesztett + 1 WHERE id='" + id2 + "';";
+                ABKapcsolat.lefuttatSQL(nyertSQL);
+                ABKapcsolat.lefuttatSQL(vesztettSQL);
+            }
+            else if (jatekAllas == (jatekos2 + " nyert"))
+            {
+                string nyertSQL = "UPDATE jatszott SET nyert = nyert + 1 WHERE id='" + id2 + "';";
+                string vesztettSQL = "UPDATE jatszott SET vesztett = vesztett + 1 WHERE id='" + id1 + "';";
+                ABKapcsolat.lefuttatSQL(nyertSQL);
+                ABKapcsolat.lefuttatSQL(vesztettSQL);
+            }
+            else
+            {
+                string dontetlen = "UPDATE jatszott SET dontetlen = dontetlen + 1 WHERE id='" + id1 + "';";
+                string dontetlen2 = "UPDATE jatszott SET dontetlen = dontetlen + 1 WHERE id='" + id2 + "';";
+                ABKapcsolat.lefuttatSQL(dontetlen);
+                ABKapcsolat.lefuttatSQL(dontetlen2);
+            }
+            ABKapcsolat.kapcsolatBezar();
         }
     }
 }

@@ -44,7 +44,12 @@ namespace Tic_Tac_Toe_WPF_beadando
             {
                 if(vizsgalatTabla.Rows.Count != 0)
                 {
-                    BelepAblakEldont();
+                    
+                    foreach (System.Data.DataRow row in vizsgalatTabla.Rows)
+                    {
+                        int id = Convert.ToInt32(row["Id"]);
+                        BelepAblakEldont(id);
+                    }
                 }
                 else
                 {
@@ -61,7 +66,7 @@ namespace Tic_Tac_Toe_WPF_beadando
             ABKapcsolat.kapcsolatBezar();
         }
 
-        private void BelepAblakEldont()
+        private void BelepAblakEldont(int id)
         {
             if (felulet == "adatm")
             {
@@ -74,6 +79,7 @@ namespace Tic_Tac_Toe_WPF_beadando
                 if (MainWindow.jszam == 0)
                 {
                     MainWindow.jatekos1 = inputnevtext;
+                    MainWindow.id1 = id;
                     MainWindow.jszam++;
                     this.Close();
                     Bejelentkezes bejelentkezes = new Bejelentkezes("belep");
@@ -82,6 +88,7 @@ namespace Tic_Tac_Toe_WPF_beadando
                 else
                 {
                     MainWindow.jatekos2 = inputnevtext;
+                    MainWindow.id2 = id;
                     MainWindow.jszam = 0;
                     this.Close();
                 }
