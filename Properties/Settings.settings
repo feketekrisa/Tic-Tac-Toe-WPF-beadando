@@ -1,9 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Tic_Tac_Toe_WPF_beadando.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
   <Profiles />
-  <Settings>
-    <Setting Name="connection_String" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Z\info\Github\feketekrisa\Tic-Tac-Toe-WPF-beadando\rekordok.mdf;Integrated Security=True;Connect Timeout=30</Value>
-    </Setting>
-  </Settings>
+  <Settings />
 </SettingsFile>

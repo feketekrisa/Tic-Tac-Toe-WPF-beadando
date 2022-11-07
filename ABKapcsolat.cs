@@ -12,13 +12,17 @@ namespace Tic_Tac_Toe_WPF_beadando
     {
         public static SqlConnection adatbazisKapcsolat()
         {
-            string csatlakoz_String = Properties.Settings.Default.connection_String;
+            //Adatbázis MDF fájl elérési utvonala LocalDB-vel.
+            string csatlakoz_String = @"server=(localdb)\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + "rekordok.mdf ; Integrated Security = True";
+
             SqlConnection kapcsolat = new SqlConnection(csatlakoz_String);
             
+            //Ha a kapcsolat nincs még nyitva akkor nyisson kapcsolatot az adatbázishoz.
             if (kapcsolat.State != ConnectionState.Open)
             {
                 kapcsolat.Open();
             }
+            //Visszaadjuk a jelenlegi kapcsolatot a többi függvénynek.
             return kapcsolat;
         }
         public static DataTable adatTabla(string SQL)
@@ -45,7 +49,7 @@ namespace Tic_Tac_Toe_WPF_beadando
         public static void kapcsolatBezar()
 
         {
-            string csatlakoz_String = Properties.Settings.Default.connection_String;
+            string csatlakoz_String = System.Configuration.ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString; ;
             SqlConnection kapcsolat = new SqlConnection(csatlakoz_String);
 
             if (kapcsolat.State != ConnectionState.Closed) kapcsolat.Close();
