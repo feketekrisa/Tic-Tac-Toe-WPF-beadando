@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -45,23 +46,36 @@ namespace Tic_Tac_Toe_WPF_beadando
             string vizsgalatSQL = "SELECT * FROM jatekosok WHERE Nev='"+inputnevtext+"';";
             var vizsgalatTabla = ABKapcsolat.adatTabla(vizsgalatSQL);
 
-            if (validEmail && (inputjelszotext != null && inputjelszotext != ""))
+            if (validEmail && (inputjelszotext != null && inputjelszotext != "" && inputjelszotext.Length >= 3))
             {
                 if (vizsgalatTabla.Rows.Count == 0)
                 {
-                    string regisztralSQL = "INSERT INTO jatekosok (Nev,Jelszo,Email) VALUES ('" + inputnevtext + "','" + inputjelszotext + "','" + inputemailtext + "');";
-                    ABKapcsolat.lefuttatSQL(regisztralSQL);
-                    MessageBox.Show("Sikeres regisztráció!", "Regisztráció kész!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    string regisztralSQL = "INSERT INTO jatekosok (Nev,Jelszo,Email) VALUES ('" + inputnevtext + "','" + inputjelszotext + "','" + inputemailtext + "');SELECT CAST(scope_identity() AS int);";
+
+                    int id = ABKapcsolat.lefuttatScalarSQL(regisztralSQL);
+                    string betoltSQL = "INSERT INTO jatszott (jatekosId,nyert,vesztett,dontetlen) VALUES ('"+id+"',0,0,0);";
+                    ABKapcsolat.lefuttatSQL(betoltSQL);
+                    MessageBox.Show("Sikeres regisztráció!",
+                    "Regisztráció kész!",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Ez a név már foglalt!", "Hiba!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Ez a név már foglalt!",
+                        "Hiba!",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Hibás email cím vagy jelszó!","Hiba!",MessageBoxButton.OK,MessageBoxImage.Error);
+                MessageBox.Show("Hibás email cím vagy jelszó!",
+                    "Hiba!",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
             }
+            ABKapcsolat.kapcsolatBezar();
         }
 
         private void betoltott(object sender, RoutedEventArgs e)

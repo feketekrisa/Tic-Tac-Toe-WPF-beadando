@@ -21,7 +21,7 @@ namespace Tic_Tac_Toe_WPF_beadando
     /// </summary>
     public partial class Rekordok : Window
     {
-        private const string SQL = "SELECT jatekosok.Id ,Nev, nyert, vesztett FROM jatekosok,jatszott WHERE jatekosok.Id=jatszott.jatekosId;";
+        private const string SQL = "SELECT jatekosok.Id ,Nev, Email, nyert, vesztett, dontetlen FROM jatekosok INNER JOIN jatszott ON jatekosok.Id=jatszott.jatekosId;";
         public Rekordok()
         {
             InitializeComponent();
@@ -35,6 +35,7 @@ namespace Tic_Tac_Toe_WPF_beadando
             {
                 rekordoktabla.CanUserSortColumns = false;
             }
+            ABKapcsolat.kapcsolatBezar();
         }
 
         private void betoltott(object sender, RoutedEventArgs e)
