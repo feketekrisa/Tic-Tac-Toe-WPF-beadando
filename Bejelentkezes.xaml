@@ -9,10 +9,11 @@
     <Grid>
         <Label Content="Név" Margin="27,25,220,0" VerticalAlignment="Top"/>
         <Label Content="Jelszó" Margin="27,66,220,0" VerticalAlignment="Top"/>
-        <TextBox Margin="106,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160" Name="nev"/>
-        <TextBox Margin="106,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160" Name="jelso"/>
-        <Button Content="Kész" HorizontalAlignment="Left" Margin="161,110,0,0" VerticalAlignment="Top" Width="50" Click="kesz"/>
-        <Button Content="Mégse" Margin="216,110,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Click="megse"/>
+        <TextBox Margin="106,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160" x:Name="Nev"/>
+        <TextBox Margin="106,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160" x:Name="Jelszo"/>
+        <Button Content="Kész" HorizontalAlignment="Left" Margin="161,110,0,0" VerticalAlignment="Top" Width="50" Click="Kesz"/>
+        <Button Content="Mégse" Margin="216,110,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Click="Megse"/>
+        <Label Content="" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="154,3,0,0" VerticalAlignment="Top" Width="64" x:Name="JatekosPanel"/>
 
     </Grid>
 </Window>

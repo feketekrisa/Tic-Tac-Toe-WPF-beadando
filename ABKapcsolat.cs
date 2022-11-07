@@ -49,7 +49,7 @@ namespace Tic_Tac_Toe_WPF_beadando
         public static void kapcsolatBezar()
 
         {
-            string csatlakoz_String = System.Configuration.ConfigurationManager.ConnectionStrings["connection_string"].ConnectionString; ;
+            string csatlakoz_String = @"server=(localdb)\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + "rekordok.mdf ; Integrated Security = True"; ;
             SqlConnection kapcsolat = new SqlConnection(csatlakoz_String);
 
             if (kapcsolat.State != ConnectionState.Closed) kapcsolat.Close();

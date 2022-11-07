@@ -19,16 +19,80 @@ namespace Tic_Tac_Toe_WPF_beadando
     /// </summary>
     public partial class Bejelentkezes : Window
     {
-        public Bejelentkezes()
+        string felulet;
+        string inputnevtext;
+        string inputjelszotext;
+        public Bejelentkezes(string felulet)
         {
+            this.felulet = felulet;
             InitializeComponent();
+            if (felulet == "belep" && MainWindow.jszam == 0) JatekosPanel.Content = "Játékos 1";
+            else if (felulet == "belep" && MainWindow.jszam != 0) JatekosPanel.Content = "Játékos 2";
         }
-        private void kesz(object sender, RoutedEventArgs e)
+        private void Kesz(object sender, RoutedEventArgs e)
         {
+            TextBox inputnev = (TextBox)FindName("Nev");
+            TextBox inputjelszo = (TextBox)FindName("Jelszo");
 
+            inputnevtext = inputnev.Text;
+            inputjelszotext = inputjelszo.Text;
+
+            string belepesSQL = "SELECT * FROM jatekosok WHERE Nev='" + inputnevtext + "' AND Jelszo='"+inputjelszotext+"';";
+            var vizsgalatTabla = ABKapcsolat.adatTabla(belepesSQL);
+
+            if ((inputnevtext != null && inputnevtext != "") && (inputjelszotext != null && inputjelszotext != ""))
+            {
+                if(vizsgalatTabla.Rows.Count != 0)
+                {
+                    BelepAblakEldont();
+                }
+                else
+                {
+                    MessageBox.Show("Hibás felhasználónév vagy jelszó!",
+                        "Hiba!",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error);
+                }
+            }
+            else MessageBox.Show("Kitöltettlen mező(k)!",
+                        "Hiba!",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error);
         }
 
-        private void megse(object sender, RoutedEventArgs e)
+        private void BelepAblakEldont()
+        {
+            if (felulet == "adatm")
+            {
+                Adatmodositas adatmodositas = new Adatmodositas();
+                adatmodositas.Show();
+                this.Close();
+            }
+            else if (felulet == "belep")
+            {
+                if (MainWindow.jszam == 0)
+                {
+                    MainWindow.jatekos1 = inputnevtext;
+                    MainWindow.jszam++;
+                    this.Close();
+                    Bejelentkezes bejelentkezes = new Bejelentkezes("belep");
+                    bejelentkezes.Show();
+                }
+                else
+                {
+                    MainWindow.jatekos2 = inputnevtext;
+                    MainWindow.jszam = 0;
+                    this.Close();
+                }
+            }
+
+            MessageBox.Show("Sikeres bejelentkezés!",
+                "Bejelentkezve!",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
+        }
+
+        private void Megse(object sender, RoutedEventArgs e)
         {
             Close();
         }

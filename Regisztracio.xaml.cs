@@ -45,7 +45,7 @@ namespace Tic_Tac_Toe_WPF_beadando
             string vizsgalatSQL = "SELECT * FROM jatekosok WHERE Nev='"+inputnevtext+"';";
             var vizsgalatTabla = ABKapcsolat.adatTabla(vizsgalatSQL);
 
-            if (validEmail && (inputjelszotext != null && inputjelszotext != ""))
+            if (validEmail && (inputjelszotext != null && inputjelszotext != "" && inputjelszotext.Length >= 3))
             {
                 if (vizsgalatTabla.Rows.Count == 0)
                 {
