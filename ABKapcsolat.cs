@@ -48,6 +48,16 @@ namespace Tic_Tac_Toe_WPF_beadando
             return false;
         }
 
+        public static int lefuttatScalarSQL(string SQL)
+        {
+            SqlConnection kapcsolat = adatbazisKapcsolat();
+            SqlCommand sqlparancs = new SqlCommand(SQL, kapcsolat);
+           
+            var id = (Int32)sqlparancs.ExecuteScalar();
+
+            return id;
+        }
+
         public static void kapcsolatBezar()
 
         {

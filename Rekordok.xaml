@@ -7,10 +7,11 @@
         mc:Ignorable="d"
         Title="Rekordok" Height="450" Width="800" Loaded="betoltott" >
     <Grid>
-        <DataGrid x:Name="rekordoktabla" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding}" AlternatingRowBackground="LightGray">
+        <DataGrid x:Name="rekordoktabla" ColumnWidth="*" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding}" AlternatingRowBackground="LightGray">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Név" Binding="{Binding Nev}" />
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" />
                 <DataGridTextColumn Header="Nyert" Binding="{Binding nyert}" />
                 <DataGridTextColumn Header="Vesztett" Binding="{Binding vesztett}" />
                 <DataGridTextColumn Header="Döntetlen" Binding="{Binding dontetlen}"/>

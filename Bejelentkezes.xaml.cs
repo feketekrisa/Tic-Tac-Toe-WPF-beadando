@@ -58,6 +58,7 @@ namespace Tic_Tac_Toe_WPF_beadando
                         "Hiba!",
                         MessageBoxButton.OK,
                         MessageBoxImage.Error);
+            ABKapcsolat.kapcsolatBezar();
         }
 
         private void BelepAblakEldont()
