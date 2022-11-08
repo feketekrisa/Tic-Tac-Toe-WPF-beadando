@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tic_Tac_Toe_WPF_beadando"
         mc:Ignorable="d"
-        Title="Jó Játék :)" Height="450" Width="800" Loaded="Betoltott" Icon="./././képek/tic-tac-toe-icon.png">
+        Title="Amőba játék" Height="450" Width="800" Loaded="Betoltott" Icon="./././képek/tic-tac-toe-icon.png">
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Background" Value="#CCC"></Setter>
