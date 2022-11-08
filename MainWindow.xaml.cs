@@ -246,6 +246,26 @@ namespace Tic_Tac_Toe_WPF_beadando
                 ABKapcsolat.lefuttatSQL(dontetlen);
                 ABKapcsolat.lefuttatSQL(dontetlen2);
             }
+            string tablastring = "";
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (j == 2)
+                    {
+                        if (tabla[i, j] != '\0') tablastring += tabla[i, j];
+                        else tablastring += "-";
+                    }
+                    else
+                    {
+                        if (tabla[i, j] != '\0') tablastring += tabla[i, j] + " ";
+                        else tablastring += "- ";
+                    }
+                }
+                if(i!=2) tablastring += "\n";
+            }
+            string tablaSQL = "INSERT INTO meccsek (tabla,meccsjatekos1Id,meccsjatekos2Id) VALUES('"+ tablastring + "','"+id1+"','"+id2+"');";
+            ABKapcsolat.lefuttatSQL(tablaSQL);
             ABKapcsolat.kapcsolatBezar();
         }
 

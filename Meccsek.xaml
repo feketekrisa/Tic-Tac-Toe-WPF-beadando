@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tic_Tac_Toe_WPF_beadando"
         mc:Ignorable="d"
-        Title="Meccsek" Height="450" Width="800">
+        Title="Meccsek" Height="450" Width="800" Loaded="Betoltott">
     <Grid>
-        
+        <DataGrid x:Name="meccsektabla" ColumnWidth="*" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding}" AlternatingRowBackground="LightGray">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Játékos 1 Id" Binding="{Binding meccsjatekos1Id}" />
+                <DataGridTextColumn Header="Játékos 2 Id" Binding="{Binding meccsjatekos2Id}" />
+                <DataGridTextColumn Header="Tábla" Binding="{Binding tabla}" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
