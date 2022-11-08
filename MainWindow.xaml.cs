@@ -253,5 +253,11 @@ namespace Tic_Tac_Toe_WPF_beadando
         {
             
         }
+
+        private void MeccsekGomb(object sender, RoutedEventArgs e)
+        {
+            Meccsek meccsek = new Meccsek();
+            meccsek.Show();
+        }
     }
 }
