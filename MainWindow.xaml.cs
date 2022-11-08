@@ -31,6 +31,7 @@ namespace Tic_Tac_Toe_WPF_beadando
         public static string jatekos2 = "Játékos 2";
         public static int jszam = 0;
         private string jatekAllas = "";
+        //Létrehozunk egy 3x3 mátrixot amelyben a játék celláinak értékét tároljuk el
         private char[,] tabla = new char[3, 3];
 
         public MainWindow()
@@ -38,8 +39,7 @@ namespace Tic_Tac_Toe_WPF_beadando
             InitializeComponent();
             tombFeltolt(tabla);
         }
-
-
+        //Adott játékcella kattintásakor lefutó metódus
         private void Gomb_Katt(object sender, EventArgs e)
         {
             Button? gomb = sender as Button;
@@ -47,15 +47,18 @@ namespace Tic_Tac_Toe_WPF_beadando
             int sor = Grid.GetRow(gomb);
             int oszlop = Grid.GetColumn(gomb);
 
-
+            //Cella beállítása - X
             if (gomb != null && jatekosCsere)
             {
+                //Kattintáskor változtatjuk a jelenleg következő játékos nevét és szimbólumát
+                //amelyet a jatekosKiir() függvénnyel oldjuk meg
                 tabla[sor, oszlop] = 'X';
                 kepEcset.ImageSource = new BitmapImage(new Uri("../../../képek/X_gomb.png", UriKind.Relative));
                 gomb.Background = kepEcset;
                 jatekosCsere = false;
                 jatekosKiir();
             }
+            //Cella beállítása - O
             else if (gomb != null && !jatekosCsere)
             {
                 tabla[sor, oszlop] = 'O';
@@ -63,7 +66,6 @@ namespace Tic_Tac_Toe_WPF_beadando
                 gomb.Background = kepEcset;
                 jatekosCsere = true;
                 jatekosKiir();
-
             }
             if (gomb != null) gomb.IsEnabled = false;
 
@@ -84,6 +86,7 @@ namespace Tic_Tac_Toe_WPF_beadando
             System.Windows.Application.Current.Shutdown();
         }
 
+        //A rács jobb oldali oszlopába íratja ki a játékost és a szimbólumot
         public void jatekosKiir()
         {
             TextBlock szovegDoboz = (TextBlock)this.FindName("jelenlegi");
@@ -93,7 +96,7 @@ namespace Tic_Tac_Toe_WPF_beadando
                 else szovegDoboz.Text = "Játékos:\nO - " +jatekos2;
             }
         }
-
+        //Ha a játék végetér akkor a gombok értékeit töröljük és kattinthatatlanná tesszük
         private void jatekVege()
         {
             for (int i = 0; i < 9; i++)
@@ -103,7 +106,8 @@ namespace Tic_Tac_Toe_WPF_beadando
                 gombideiglenes.IsEnabled = false;
             }
         }
-
+        //Feltöltjük a mátrixot null értékekkel amelyel könnyen vizsgálhatunk
+        //A játék végén ezt ugyanúgy meghívjuk mert az szeretnénk, hogy alaphelyzetben legyen a játék
         public void tombFeltolt(char[,] array)
         {
             for (int i = 0; i < array.GetLength(0); i++)
@@ -116,7 +120,7 @@ namespace Tic_Tac_Toe_WPF_beadando
             jatekosCsere = true;
             jatekosKiir();
         }
-        
+        //Megvizsgáljuk a tömböt a játék szabályai szerint
         public string jatekVizsgal(char[,] array)
         {
             //Soronkénti vizsgálat - X
@@ -156,7 +160,7 @@ namespace Tic_Tac_Toe_WPF_beadando
             }
             return "";
         }
-
+        //Táblamentés függvény tesztelésre
         private void tablaMentes()
         {
             using StreamWriter sw = new StreamWriter("teszt.txt");
@@ -170,7 +174,8 @@ namespace Tic_Tac_Toe_WPF_beadando
                 sw.Write("}\n");
             }
         }
-
+        //Akkor hívódik meg amikor az új játék gombra kattintunk
+        //Alaphelyzetre állítja a játékállást
         private void ujJatek(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < 9; i++)
@@ -181,19 +186,20 @@ namespace Tic_Tac_Toe_WPF_beadando
                 tombFeltolt(tabla);
             }
         }
-
+        //Rekordok gomb és ablak megnyitása
         private void Rekordok(object sender, RoutedEventArgs e)
         {
             Rekordok rekordokablak = new Rekordok();
             rekordokablak.Show();
         }
-
+        //Regisztrál gomb és ablak megnyitása
         private void regisztralGomb(object sender, RoutedEventArgs e)
         {
             Regisztracio regisztracio = new Regisztracio();
             regisztracio.Show();
         }
-
+        //Módosítás ablak megnyitása (előbb be kell jelentkezni annak a felhasználónak akinek az
+        //adatait módosítjuk)
         private void JatekosModosit(object sender, RoutedEventArgs e)
         {
             //Előbb be kell jelentkezni az adott felhasználónak
@@ -201,6 +207,10 @@ namespace Tic_Tac_Toe_WPF_beadando
             bejelentkezes.Show();
         }
 
+        //Belépés ablak megnyitása (előszőr az első játékos jelentkezik be majd
+        //a második)
+        //Ha a felhasználó nem jelentkezik be akkor helyette az alapértelmezett Játékos1/Játékos2
+        //felhasználónevet használja a program
         private void JatekosBelepes(object sender, RoutedEventArgs e)
         {
             bool alaphelyzet = true;
@@ -222,6 +232,7 @@ namespace Tic_Tac_Toe_WPF_beadando
                 MessageBoxImage.Error);
         }
 
+        //Metódus az eredmények feltöltésére adatbázisba
         private void EredmenyFeltolt()
         {
             
@@ -246,6 +257,27 @@ namespace Tic_Tac_Toe_WPF_beadando
                 ABKapcsolat.lefuttatSQL(dontetlen);
                 ABKapcsolat.lefuttatSQL(dontetlen2);
             }
+            //Játéktábla adatainak kiolvasása, megformázása majd feltöltése
+            string tablastring = "";
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (j == 2)
+                    {
+                        if (tabla[i, j] != '\0') tablastring += tabla[i, j];
+                        else tablastring += "-";
+                    }
+                    else
+                    {
+                        if (tabla[i, j] != '\0') tablastring += tabla[i, j] + " ";
+                        else tablastring += "- ";
+                    }
+                }
+                if(i!=2) tablastring += "\n";
+            }
+            string tablaSQL = "INSERT INTO meccsek (tabla,meccsjatekos1Id,meccsjatekos2Id) VALUES('"+ tablastring + "','"+id1+"','"+id2+"');";
+            ABKapcsolat.lefuttatSQL(tablaSQL);
             ABKapcsolat.kapcsolatBezar();
         }
 
@@ -253,7 +285,7 @@ namespace Tic_Tac_Toe_WPF_beadando
         {
             
         }
-
+        //Meccsek gomb és ablak megnyitása
         private void MeccsekGomb(object sender, RoutedEventArgs e)
         {
             Meccsek meccsek = new Meccsek();

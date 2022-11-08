@@ -19,9 +19,26 @@ namespace Tic_Tac_Toe_WPF_beadando
     /// </summary>
     public partial class Meccsek : Window
     {
+        private const string SQL = "SELECT meccsek.Id, tabla, meccsjatekos1Id, meccsjatekos2Id FROM meccsek;";
         public Meccsek()
         {
             InitializeComponent();
+        }
+
+        private void Betoltott(object sender, RoutedEventArgs e)
+        {
+            adatracsFeltoltAdatTablaval();
+        }
+
+        private void adatracsFeltoltAdatTablaval()
+        {
+            var adattabla = ABKapcsolat.adatTabla(SQL);
+            meccsektabla.DataContext = adattabla;
+            if (meccsektabla.CurrentColumn == null)
+            {
+                meccsektabla.CanUserSortColumns = false;
+            }
+            ABKapcsolat.kapcsolatBezar();
         }
     }
 }
