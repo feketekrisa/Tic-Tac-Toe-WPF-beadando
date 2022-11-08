@@ -248,5 +248,10 @@ namespace Tic_Tac_Toe_WPF_beadando
             }
             ABKapcsolat.kapcsolatBezar();
         }
+
+        private void Betoltott(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

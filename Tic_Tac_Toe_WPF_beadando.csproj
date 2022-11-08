@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="képek\O_gomb.png" />
+    <None Remove="képek\tic-tac-toe-icon.png" />
     <None Remove="képek\X_gomb.png" />
   </ItemGroup>
 
@@ -16,6 +17,9 @@
     <Content Include="képek\O_gomb.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="képek\tic-tac-toe-icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="képek\X_gomb.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
