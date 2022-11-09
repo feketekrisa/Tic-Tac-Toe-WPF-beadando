@@ -22,10 +22,6 @@ namespace Tic_Tac_Toe_WPF_beadando
     /// </summary>
     public partial class Regisztracio : Window
     {
-        string inputnevtext;
-        string inputjelszotext;
-        string inputemailtext;
-
         public Regisztracio()
         {
             InitializeComponent();
@@ -33,14 +29,16 @@ namespace Tic_Tac_Toe_WPF_beadando
 
         private void ujJatekosRegisztral(object sender, RoutedEventArgs e)
         {
+            //A TextBox tartalmának változókba való mentése
             TextBox inputnev = (TextBox)FindName("Nev");
             TextBox inputjelszo = (TextBox)FindName("Jelszo");
             TextBox inputemail = (TextBox)FindName("Email");
+            //A Regex az helyes email formátumot ellenőrzi
             Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
 
-            inputnevtext = inputnev.Text;
-            inputjelszotext = inputjelszo.Text;
-            inputemailtext = inputemail.Text;
+            string inputnevtext = inputnev.Text;
+            string inputjelszotext = inputjelszo.Text;
+            string inputemailtext = inputemail.Text;
 
             bool validEmail = regex.IsMatch(inputemailtext);
             string vizsgalatSQL = "SELECT * FROM jatekosok WHERE Nev='"+inputnevtext+"';";
@@ -50,9 +48,11 @@ namespace Tic_Tac_Toe_WPF_beadando
             {
                 if (vizsgalatTabla.Rows.Count == 0)
                 {
+                    // Az regisztrálásnál a TextBoxból kivett értékeket hozzáadja az adatbázishoz
                     string regisztralSQL = "INSERT INTO jatekosok (Nev,Jelszo,Email) VALUES ('" + inputnevtext + "','" + inputjelszotext + "','" + inputemailtext + "');SELECT CAST(scope_identity() AS int);";
 
                     int id = ABKapcsolat.lefuttatScalarSQL(regisztralSQL);
+                    //Az új felhasználó rekordok értékeit 0-ra állítja
                     string betoltSQL = "INSERT INTO jatszott (jatekosId,nyert,vesztett,dontetlen) VALUES ('"+id+"',0,0,0);";
                     ABKapcsolat.lefuttatSQL(betoltSQL);
                     MessageBox.Show("Sikeres regisztráció!",
@@ -60,6 +60,7 @@ namespace Tic_Tac_Toe_WPF_beadando
                     MessageBoxButton.OK,
                     MessageBoxImage.Information);
                 }
+                //Ellenőrzi hogy van-e ilyen név
                 else
                 {
                     MessageBox.Show("Ez a név már foglalt!",

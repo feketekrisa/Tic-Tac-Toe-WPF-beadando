@@ -27,6 +27,7 @@ namespace Tic_Tac_Toe_WPF_beadando
             InitializeComponent();
         }
 
+        //Adatbázisban szereplő játékosok statisztikáit jeleníti meg pl: mennyit nyert
         public void adatracsFeltoltAdatTablaval()
         {
             var adattabla = ABKapcsolat.adatTabla(SQL);

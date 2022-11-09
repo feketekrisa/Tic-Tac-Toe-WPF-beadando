@@ -27,7 +27,6 @@ namespace Tic_Tac_Toe_WPF_beadando
             return kapcsolat;
         }
         public static DataTable adatTabla(string SQL)
-
         {
             SqlConnection kapcsolat = adatbazisKapcsolat();
             DataTable tabla = new DataTable();
@@ -39,7 +38,6 @@ namespace Tic_Tac_Toe_WPF_beadando
         }
 
         public static bool lefuttatSQL(string SQL)
-
         {
             SqlConnection kapcsolat = adatbazisKapcsolat();
             SqlCommand sqlparancs = new SqlCommand(SQL, kapcsolat);
@@ -59,7 +57,6 @@ namespace Tic_Tac_Toe_WPF_beadando
         }
 
         public static void kapcsolatBezar()
-
         {
             string csatlakoz_String = @"server=(localdb)\MSSQLLocalDB;AttachDbFilename=" + new FileInfo(AppDomain.CurrentDomain.BaseDirectory).Directory.Parent.FullName.Replace(@"bin\Debug", "") + "rekordok.mdf ; Integrated Security = True";
             SqlConnection kapcsolat = new SqlConnection(csatlakoz_String);

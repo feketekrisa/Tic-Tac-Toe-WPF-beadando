@@ -30,6 +30,7 @@ namespace Tic_Tac_Toe_WPF_beadando
             adatracsFeltoltAdatTablaval();
         }
 
+        //a lejátszott meccsek történetének kiíratása a felhasználónak
         private void adatracsFeltoltAdatTablaval()
         {
             var adattabla = ABKapcsolat.adatTabla(SQL);
