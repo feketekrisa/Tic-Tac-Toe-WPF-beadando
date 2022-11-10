@@ -18,7 +18,7 @@ namespace Tic_Tac_Toe_WPF_beadando
 
             SqlConnection kapcsolat = new SqlConnection(csatlakoz_String);
             
-            //Ha a kapcsolat nincs még nyitva akkor nyisson kapcsolatot az adatbázishoz.
+            //Ha a kapcsolat még nincs nyitva akkor nyisson kapcsolatot az adatbázishoz.
             if (kapcsolat.State != ConnectionState.Open)
             {
                 kapcsolat.Open();
@@ -26,6 +26,8 @@ namespace Tic_Tac_Toe_WPF_beadando
             //Visszaadjuk a jelenlegi kapcsolatot a többi függvénynek.
             return kapcsolat;
         }
+        //SQL query: ezt a függvényt meghívva egy lekérdezést futtatunk le majd a lekérdezés
+        //eredményeit egy adattáblával küldjük vissza (DataTable)
         public static DataTable adatTabla(string SQL)
         {
             SqlConnection kapcsolat = adatbazisKapcsolat();
@@ -37,6 +39,8 @@ namespace Tic_Tac_Toe_WPF_beadando
             return tabla;
         }
 
+
+        //DML SQL parancsok lefuttatására használható
         public static bool lefuttatSQL(string SQL)
         {
             SqlConnection kapcsolat = adatbazisKapcsolat();
@@ -45,7 +49,8 @@ namespace Tic_Tac_Toe_WPF_beadando
             if (sqlparancs.ExecuteNonQuery() > 0) return true;
             return false;
         }
-
+        //Hasonló mint az előző viszont ez egy olyan ID-t ad vissza a lefuttatás végén amely
+        //megmondja, hogy melyik id-be szúrta be a rekordot
         public static int lefuttatScalarSQL(string SQL)
         {
             SqlConnection kapcsolat = adatbazisKapcsolat();
@@ -56,11 +61,12 @@ namespace Tic_Tac_Toe_WPF_beadando
             return id;
         }
 
+        //Lezárjuk vele az adatbázis kapcsolatot
         public static void kapcsolatBezar()
         {
             string csatlakoz_String = @"server=(localdb)\MSSQLLocalDB;AttachDbFilename=" + new FileInfo(AppDomain.CurrentDomain.BaseDirectory).Directory.Parent.FullName.Replace(@"bin\Debug", "") + "rekordok.mdf ; Integrated Security = True";
             SqlConnection kapcsolat = new SqlConnection(csatlakoz_String);
-
+            //Ha a kapcsolat még nincs lezárva akkor zárjuk le
             if (kapcsolat.State != ConnectionState.Closed) kapcsolat.Close();
         }
     }
