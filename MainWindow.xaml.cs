@@ -33,6 +33,7 @@ namespace Tic_Tac_Toe_WPF_beadando
         private string jatekAllas = "";
         //Létrehozunk egy 3x3 mátrixot amelyben a játék celláinak értékét tároljuk el
         private char[,] tabla = new char[3, 3];
+        private int dontetlen = 0;
 
         public MainWindow()
         {
@@ -69,6 +70,7 @@ namespace Tic_Tac_Toe_WPF_beadando
             }
             if (gomb != null) gomb.IsEnabled = false;
 
+            dontetlen++;
             jatekAllas = jatekVizsgal(tabla);
             // Játék vége
             if (jatekAllas != "")
@@ -136,8 +138,7 @@ namespace Tic_Tac_Toe_WPF_beadando
                 (array[0, 2] == 'X' && array[1, 1] == 'X' && array[2, 0] == 'X'))
             {
                 return jatekos1+" nyert";
-                //Soronkénti vizsgálat - O
-            }
+            }//Soronkénti vizsgálat - O
             else if ((array[0, 0] == 'O' && array[0, 1] == 'O' && array[0, 2] == 'O') ||
                (array[1, 0] == 'O' && array[1, 1] == 'O' && array[1, 2] == 'O') ||
                (array[2, 0] == 'O' && array[2, 1] == 'O' && array[2, 2] == 'O') ||
@@ -150,11 +151,8 @@ namespace Tic_Tac_Toe_WPF_beadando
                (array[0, 2] == 'O' && array[1, 1] == 'O' && array[2, 0] == 'O'))
             {
                 return jatekos2+" nyert";
-                //Döntetlen
-            }
-            else if ((array[0, 0] != '\0' && array[0, 1] != '\0' && array[0, 2] != '\0') &&
-               (array[1, 0] != '\0' && array[1, 1] != '\0' && array[1, 2] != '\0') &&
-               (array[2, 0] != '\0' && array[2, 1] != '\0' && array[2, 2] != '\0'))
+            }//Döntetlen
+            else if (dontetlen==9)
             {
                 return "Döntetlen";
             }
@@ -178,6 +176,7 @@ namespace Tic_Tac_Toe_WPF_beadando
         //Alaphelyzetre állítja a játékállást
         private void ujJatek(object sender, RoutedEventArgs e)
         {
+            dontetlen = 0;
             for (int i = 0; i < 9; i++)
             {
                 Button gombideiglenes = (Button)FindName("gomb" + (i + 1));
